@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,11 +22,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-
 # Use a separate file for the secret key
-with open(os.path.join(BASE_DIR, 'secretkey.txt')) as f:
+with open(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'secretkey.txt')) as f:
     SECRET_KEY = f.read().strip()
 	
 # SECURITY WARNING: don't run with debug turned on in production!
