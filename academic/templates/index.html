@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+
+<h1>Academic Life</h1>
+
+<p>What you know shapes how you think, similarly for others. So contribute to the idea ecosystem by learning lots and spreading the good stuff!</p>
+
+<p>I obtained a first class honours degree degree with a integrated masters in mathematics at the University of Warwick in 2011-15. My masters thesis supervised by <a href = https://warwick.ac.uk/fac/sci/maths/people/staff/dmitriy_rumynin/>Dmitriy Rumynin</a>, it was on the topic of 2-groups and their associated 2-Charracters. This thesis later became a paper, which can be found below. You can find all my module results here, the good, the bad and the humbling. I have various resources from my undergraduate studies in my dropbox and some other files associated with my teaching which can be found <a href= https://www.dropbox.com/home/Warwick%20University%20Math's>here</a>.</p>
+
+<p>Next I studied a PhD in the University of Warwick supervised by <a href= https://homepages.warwick.ac.uk/~maslar/>Agelos Georgakopoulos</a>. Here I studied generalisations of groups and Cayley graphs, with a particular focus on graph theory.</p>
+
+<p>I enjoy academic topics from Graph theory, Group theory, Geometric group Theory and other subjects that begin with G! I am also interested in interdisciplinary projects, be it in academic, commercial or policy. See my projects section for more details. The main thing I apply practically but want to understand more academically is machine learning. I want to apply more maths to real life, see my ideas section for more details about how I want to go about this.</p>
+
+<p>I have always loved teaching, getting involved in it early and throwing myself in as much as possible. Find a list of all the teaching I did here.</p>
+
+<h4>Publications</h4>
+
+{% if papers %}
+    <ul>
+    {% for paper in papers %}
+        <li style = "list-style-type:square">{{paper.authors}}. <a href= {{paper.link}}>{{ paper.title }}</a>. {{paper.cite}}, {{paper.pub_date}}.</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No papers are available.</p>
+{% endif %}
+{% endblock %}
+	
