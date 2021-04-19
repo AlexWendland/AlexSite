@@ -2,6 +2,7 @@ from django.db import models
 
 class Talk(models.Model):
     title = models.CharField('Title', max_length=200)
+    seminar_name = models.CharField('Seminar Name', max_length=200)
     location = models.CharField('Location', max_length=200)
     date_given = models.DateField('Date Given')
     abstract = models.TextField('Abstract', blank = True)

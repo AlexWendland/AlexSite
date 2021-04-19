@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block bar_extension %}
+    <div class="nav-content">
+      <ul class="tabs tabs-transparent">
+        <li class="tab"><a href={% url 'academic:talk_index'%}>Talks</a></li>
+      </ul>
+    </div>
+{% endblock %}

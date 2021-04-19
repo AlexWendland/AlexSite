@@ -1,0 +1,20 @@
+{% extends "base_academic.html" %}
+
+{% block page_content %}
+
+<h1>Talks</h1>
+
+<p>Add something about how much I love talking here.</p>
+
+{% if talks %}
+    <ul>
+    {% for talk in talks %}
+        <li style = "list-style-type:square">{{talk.date_given}}: {{talk.seminar_name}}, {{talk.location}}.<br>
+        <a href="{% url 'academic:talk_detail' talk.id %}">{{talk.title}}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No talks are available.</p>
+{% endif %}
+{% endblock %}
+	
