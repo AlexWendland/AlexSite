@@ -29,7 +29,7 @@
                 <span>Type</span>
             </label>
         </div>
-    </div> 
+    </div> --->
 
     <p id="teaching_list">
             <ul>
@@ -38,21 +38,9 @@
                 {{ course.get_level_display }} {{ course.get_type_display }} at <a href={{ course.organisation_URL }}> {{ course.organisation_name }}</a></li>
             {% endfor %}
             </ul>
-    </p> --->
-	<style>
-	.vl {
-	  border-left: 3px solid black;
-	}
-	</style>
-	
-	{% for course in teaching %}
-		<div class="row">
-			<div class="col s3">{{ course.start_date }} - {{ course.end_date }}</div>
-			<div class="col s9"><div class="vl"> <span style="display:inline-block; width: 10px;"></span> <b>{{ course.title }} </b>.<br>
-			<span style="display:inline-block; width: 10px;"></span> {{ course.get_level_display }} {{ course.get_type_display }} at <a href={{ course.organisation_URL }}> {{ course.organisation_name }}</a></div></div>
-		</div>
-    {% endfor %}
-    <!--- <script>
+    </p>
+    
+    <script>
         function list_sort(val) {
             var text;
             if (val == 0) {
@@ -64,7 +52,7 @@
             }
             document.getElementById('teaching_list').innerHTML = text;
         }
-    </script> --->
+    </script>
 {% else %}
     <p>No teaching is available.</p>
 {% endif %}

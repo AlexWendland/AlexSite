@@ -19,6 +19,16 @@ class Paper(models.Model):
     
     def __str__(self):
         return self.title
+
+class Award(models.Model):
+    title = models.CharField('Title',max_length=400)
+    date_obt = models.DateField('Date Obtained')
+    text = models.TextField('Text on award', blank = True)
+    organisation_name = models.CharField('Organisation', max_length=200)
+    organisation_URL = models.URLField('Organisation URL', null=True)
+    
+    def __str__(self):
+        return self.title
         
 class Teaching(models.Model):
     

@@ -7,12 +7,19 @@
 <p>Add something about how much I love talking here.</p>
 
 {% if talks %}
-    <ul>
+	<style>
+	.vl {
+	  border-left: 3px solid black;
+	}
+	</style>
+	
     {% for talk in talks %}
-        <li style = "list-style-type:square">{{talk.date_given}}: {{talk.seminar_name}}, {{talk.location}}.<br>
-        <a href="{% url 'academic:talk_detail' talk.id %}">{{talk.title}}</a></li>
+		<div class="row">
+			<div class="col s2">{{talk.date_given}}</div>
+			<div class="col s10"><div class="vl"> <span style="display:inline-block; width: 10px;"></span> <b>{{talk.seminar_name}}, {{talk.location}}. </b>.<br>
+			<span style="display:inline-block; width: 10px;"></span> <a href="{% url 'academic:talk_detail' talk.id %}">{{talk.title}}</a></div></div>
+		</div>
     {% endfor %}
-    </ul>
 {% else %}
     <p>No talks are available.</p>
 {% endif %}
