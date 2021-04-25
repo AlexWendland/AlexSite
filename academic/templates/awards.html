@@ -2,59 +2,33 @@
 
 {% block page_content %}
 
-<h1>Teaching</h1>
+<h1>Awards and Grants</h1>
 
-<p>Add something about how much I love teaching here.</p>
+<p>Add something about how much I love being awarded things.</p>
 
-{% if teaching %}
+{% if awards %}
 
-<!---    <p>Please choose how to sort my teaching.</p>
+    <style>
+    .vl {
+        border-left: 3px solid black;
+    }
+    .v2 {
+        border-left: 10px solid white;
+    }
+    .right {
+        text-align: right;
+    }
+    </style>
 
-    <div class="row">
-        <div class="col s4">
-            <label>
-                <input name="group1" type="radio" onclick="list_sort(0)" checked />
-                <span>Date Started</span>
-            </label>
-        </div>
-        <div class="col s4">
-            <label>
-                <input name="group1" type="radio" onclick="list_sort(1)"/>
-                <span>Academic Level</span>
-            </label>
-        </div>
-        <div class="col s4">
-            <label>
-                <input name="group1" type="radio" onclick="list_sort(2)"/>
-                <span>Type</span>
-            </label>
-        </div>
-    </div> --->
-
-    <p id="teaching_list">
-            <ul>
-            {% for course in teaching %}
-                <li>{{ course.start_date }} - {{ course.end_date }} : <b>{{ course.title }} </b>.<br>
-                {{ course.get_level_display }} {{ course.get_type_display }} at <a href={{ course.organisation_URL }}> {{ course.organisation_name }}</a></li>
-            {% endfor %}
-            </ul>
-    </p>
-    
-    <script>
-        function list_sort(val) {
-            var text;
-            if (val == 0) {
-                text = "pic_bulboff.gif";
-            } else if (val == 1) {
-                text = "pic_bulbon.gif";
-            } else {
-                text = "blah";
-            }
-            document.getElementById('teaching_list').innerHTML = text;
-        }
-    </script>
+	{% for award in awards %}
+		<div class="row">
+			<div class="col s2"><div class="right">{{ award.date_obt }}</div></div>
+			<div class="col s10"><div class="vl"> <div class="v2"> <b>{{ award.title }}</b>, <a href={{award.organisation_URL}}>{{ award.organisation_name }}</a>.<br>
+			{{award.text}} </div></div></div>
+		</div>
+    {% endfor %}
 {% else %}
-    <p>No teaching is available.</p>
+    <p>Be better at getting stuff.</p>
 {% endif %}
 {% endblock %}
 	

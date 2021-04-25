@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 
-from .models import Paper, Talk, Teaching
+from .models import *
 
 class IndexView(generic.ListView):
     template_name = "index.html"
@@ -28,3 +28,10 @@ class TeachingView(generic.ListView):
     
     def get_queryset(self):
         return Teaching.objects.order_by('-start_date')
+
+class AwardsView(generic.ListView):
+    template_name = "awards.html"
+    context_object_name = 'awards'
+    
+    def get_queryset(self):
+        return Award.objects.order_by('-date_obt')
