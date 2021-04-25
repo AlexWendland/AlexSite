@@ -34,7 +34,7 @@
     <p id="teaching_list">
             <ul>
             {% for course in teaching %}
-                <li>{{ course.start_date }} - {{ course.end_date }} : {{ course.title }}.<br>
+                <li>{{ course.start_date }} - {{ course.end_date }} : <b>{{ course.title }} </b>.<br>
                 {{ course.get_level_display }} {{ course.get_type_display }} at <a href={{ course.organisation_URL }}> {{ course.organisation_name }}</a></li>
             {% endfor %}
             </ul>
