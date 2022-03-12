@@ -1,0 +1,9 @@
+version: "3"
+services:
+  web-app:
+    image: alex_site:latest
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    ports:
+      - "8000:8000"
