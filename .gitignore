@@ -1,2 +1,6 @@
-scr/AlexSite/secretkey.txt
+## Ignore the secret to the server
+scr/secretkey.txt
+## Ignore the data base file
+data/
+## Ignore all pycache's
 __pycache__

@@ -1,9 +1,25 @@
 version: "3"
 services:
-  web-app:
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  web:
     image: alex_site:latest
     build:
       context: ./
       dockerfile: ./Dockerfile
+    volumes:
+      - ./src:/code
     ports:
       - "8000:8000"
+    environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    depends_on:
+      - db

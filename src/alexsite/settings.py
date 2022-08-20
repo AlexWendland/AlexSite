@@ -25,7 +25,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
 # Use a separate file for the secret key
 with open(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'secretkey.txt')) as f:
     SECRET_KEY = f.read().strip()
-	
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -81,8 +81,12 @@ WSGI_APPLICATION = 'alexsite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('POSTGRES_NAME'),
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
 

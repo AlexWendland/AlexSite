@@ -1,4 +1,4 @@
-FROM python:3.8-slim
+FROM python:3
 
 COPY requirements.txt .
 
@@ -10,6 +10,6 @@ COPY src/ .
 
 EXPOSE 8000
 
-ENTRYPOINT ["python", "AlexSite/manage.py"]
+ENTRYPOINT ["python", "manage.py"]
 
 CMD ["runserver", "0.0.0.0:8000"]
