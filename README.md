@@ -1,6 +1,6 @@
 # AlexSite
 
-This is a repo for my website, under development.
+This was an old django project, I planned on making my website. I have abandonned it, still working out what form I want my website to take.
 
 ## Setup
 
